@@ -11,3 +11,7 @@ category.js
     class 4.js
 # Smart-Activity_frontend-
 # Smart-Activity_frontend-
+
+
+
+git checkout -b branch_name   <-! this creates a new branch, and switches to it >
