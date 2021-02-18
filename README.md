@@ -13,5 +13,5 @@ category.js
 # Smart-Activity_frontend-
 
 
-
+git checkout branch_name <-! switches to already exhisting branch >
 git checkout -b branch_name   <-! this creates a new branch, and switches to it >

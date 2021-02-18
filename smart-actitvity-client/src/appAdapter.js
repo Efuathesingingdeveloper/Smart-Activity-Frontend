@@ -11,13 +11,14 @@ fetch(`${this.url}/actitvities`)
 
 
 data.forEach(actitvity =>{
-    new Actitvity(actitvity.id, actitvity.name, actitvity.category)
+    AppContainer.actitvities.push(new Actitvity(actitvity.id, actitvity.name, actitvity.category)
+    )
 
 if (!AppContainer.categories.map(category => category.name).includes(actitvity.category.name)) {
-new Category(actitvity.category.name)
+AppContainer.categories.push(new Category(actitvity.category.name))
 }
-});
 AppContainer.renderActitvities();
+});
 
 })
 
@@ -50,19 +51,18 @@ AppContainer.renderActitvities();
       
     }
 
-// // static deleteActivities(actitvities) {
+static deleteActitvities(actitvities) {
     
-// //  actitvities.forEach(actitvity => {
-// //      fetch(`${this.url}/actitvities${actitvity.id}`, {
-// //      method: 'DELETE'
+ actitvities.forEach(actitvity => {
+     fetch(`${this.url}/actitvities${actitvity.id}`, {
+     method: 'DELETE'
 
-// //  })
-// //  .then(resp => resp.json())
-// //  .then(data => {console.log(data);
-// //     Actitvity.delete(data.id)
-// // AppContainer.renderActitvities();})
-// //  .catch(err => alert(err))
-// // })
-// }
+ })
+ .then(resp => resp.json())
+ .then(data => {console.log(data);
+    Actitvity.delete(data.id)
+AppContainer.renderActitvities();})
+ .catch(err => alert(err))
+})
 }
-// a little change 
+}

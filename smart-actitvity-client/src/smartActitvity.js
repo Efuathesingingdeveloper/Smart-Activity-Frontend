@@ -1,6 +1,6 @@
-class SmartActivity{
+class SmartActitvity{
     constructor(actitvities){
         this.actitvities = actitvities;
-        AppContainer.smartActivity = this;
+       
     }
 }

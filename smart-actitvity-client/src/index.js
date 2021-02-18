@@ -4,6 +4,6 @@
   
     
     AppAdapter.getActitvities();
-   AppContainer.bindEventListeners();
+    AppContainer.bindEventListeners();
 // })
 

@@ -3,48 +3,45 @@ class AppContainer {
     static categories = [];
     url = "http://localhost:3000";
     
-    static smartActitvity= {};
+    static smartActitvity= new SmartActitvity([]);
     
     static bindEventListeners() {
         const button = document.getElementById("createSmartActivity");
         button.addEventListener("click",() => this.generateSmartActitvity())
-        
-        
-        
+       
         const newActitvityForm = document.getElementById('newActitvity')
         newActitvityForm.addEventListener('submit', (even) => AppAdapter.createActitvity(even));
     };
     
     static generateSmartActitvity(){
+        const randomActitvities = this.generateRandomActitvities();
+        AppContainer.smartActitvity = new SmartActitvity(randomActitvities);
+        AppContainer.smartActitvity.actitvities = [];
+        this.renderSmartActitvity();
+    }
 
-    const randomActitvities = this.genrateRandomActitvities();
-    new SmartActivity(randomActitvities)
-    // AppAdapter.deleteActitvities(randomActitvities)
-   this.renderSmartActitvity();
+    static byCategory(categoryName) {
+        return AppContainer.actitvities.filter(actitvity => actitvity.category.name === categoryName)
+    }
 
-}
-static genrateRandomActitvities(){
-    let randomActitvities = [];
-    AppContainer.categories.forEach(category =>{
-        randomActitvities.push(Actitvity.bycategory(category.name)[Math.floor(Math.random()*Actitvity.bycategory(category.name).length)])   
-    });
-    // debugger
-    return randomActitvities;
-    
+    static generateRandomActitvities(){
+        let randomActitvities = [];
+        AppContainer.categories.forEach(category =>{
+           
+            randomActitvities.push(AppContainer.byCategory(category.name)[Math.floor(Math.random()*10)%AppContainer.byCategory(category.name).length])   
+        });
+        return randomActitvities;
+    }
 
-}
- static renderSmartActitvity(){
-    const smartActitvity = document.getElementById('smartActitvity') 
-    // debugger
-    AppContainer.smartActitvity.actitvities.forEach(actitvity =>{
-        
- 
-    const actitvityDiv = document.createElement('div');
-     smartActitvityDiv.innerHTML = "";
-    actitviyDiv.innnerText = smartActivity.name
-     smartActitvityDiv.appendChild(actitvityDiv);
-  })
-  }
+    static renderSmartActitvity(){
+        const smartActitvityDiv = document.getElementById('smartActivity') 
+        AppContainer.actitvities.forEach((actitvity, i) =>{
+            let actitvityDiv = document.createElement('div');
+            actitvityDiv.innerText = actitvity.name
+            smartActitvityDiv.appendChild(actitvityDiv);
+         
+        })
+    }
 
 static renderActitvities(){
     const psychologicalSelect = document.getElementById('psychological');
@@ -54,22 +51,22 @@ static renderActitvities(){
 
     physicalSelect.innerHTML = " ";
     spiritualSelect.innerHTML = " ";
-    debugger
+ 
     AppContainer.actitvities.forEach(actitvity => {
         const option = document.createElement('option');
         option.innerText = actitvity.name;
+  
+       
         switch(actitvity.category.name) {
             case 'psychological':
                 psychologicalSelect.appendChild(option);
                 break;
                 case 'spiritual':
                     spiritualSelect.appendChild(option);
-
-                break;
+                    break;
                 case 'physical':
                     physicalSelect.appendChild(option);
-
-                break;
+                    break;
             default:
         }
         
