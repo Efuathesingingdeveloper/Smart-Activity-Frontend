@@ -16,7 +16,6 @@ class AppContainer {
     static generateSmartActitvity(){
         const randomActitvities = this.generateRandomActitvities();
         AppContainer.smartActitvity = new SmartActitvity(randomActitvities);
-        AppContainer.smartActitvity.actitvities = [];
         this.renderSmartActitvity();
     }
 
@@ -35,7 +34,7 @@ class AppContainer {
 
     static renderSmartActitvity(){
         const smartActitvityDiv = document.getElementById('smartActivity') 
-        AppContainer.actitvities.forEach((actitvity, i) =>{
+        AppContainer.smartActitvity.actitvities.forEach((actitvity, i) =>{
             let actitvityDiv = document.createElement('div');
             actitvityDiv.innerText = actitvity.name
             smartActitvityDiv.appendChild(actitvityDiv);
