@@ -6,5 +6,6 @@
     AppAdapter.getActitvities();
     AppContainer.bindEventListeners();
     AppContainer.deleteActivity();
+   
 // })
 

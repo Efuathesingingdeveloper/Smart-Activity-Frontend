@@ -52,18 +52,4 @@ AppContainer.renderActitvities();
       
     }
 
-// static deleteActitvities(actitvities) {
-    
-//  actitvities.forEach(actitvity => {
-//      fetch(`${this.url}/actitvities${actitvity.id}`, {
-//      method: 'DELETE'
-
-//  })
-//  .then(resp => resp.json())
-//  .then(data => {console.log(data);
-//     Actitvity.delete(data.id)
-// AppContainer.renderActitvities();})
-//  .catch(err => alert(err))
-// })
-// }
 }

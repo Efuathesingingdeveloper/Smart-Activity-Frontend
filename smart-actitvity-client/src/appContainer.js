@@ -38,7 +38,7 @@ class AppContainer {
         const smartActitvityDiv = document.getElementById('smartActivity') 
         AppContainer.smartActitvity.actitvities.forEach((actitvity, i) =>{
             let actitvityDiv = document.createElement('div');
-            actitvityDiv.innerHTML = actitvity.name + `<div> <button id='act-${actitvity.id}'>delete Activity</button></div>`
+            actitvityDiv.innerHTML =`<div id = 'word-${actitvity.id}'> ${actitvity.name}<button id='act-${actitvity.id}'>delete Activity</button></div>`
 
           smartActitvityDiv.appendChild(actitvityDiv);
           
@@ -107,6 +107,6 @@ static renderActitvities(){
                 };
             }
    function deleteActivityID(id){
-     const deleteActivity = document.querySelector('#act-'+id)
+     const deleteActivity = document.querySelector('#word-'+id)
     deleteActivity.remove()
     };
