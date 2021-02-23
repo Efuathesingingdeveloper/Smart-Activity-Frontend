@@ -26,7 +26,7 @@ AppContainer.renderActitvities();
 };
 
   static createActitvity(event){
-     
+   
         event.preventDefault();
         const data = event.target;
         fetch(`${this.url}/actitvities`,{
@@ -45,24 +45,25 @@ AppContainer.renderActitvities();
                 const {id, name, category} = data;
                new Actitvity(id, name, category)
                AppContainer.renderActitvities()
+           
             })
             .catch(err => console.log(err));
     
       
     }
 
-static deleteActitvities(actitvities) {
+// static deleteActitvities(actitvities) {
     
- actitvities.forEach(actitvity => {
-     fetch(`${this.url}/actitvities${actitvity.id}`, {
-     method: 'DELETE'
+//  actitvities.forEach(actitvity => {
+//      fetch(`${this.url}/actitvities${actitvity.id}`, {
+//      method: 'DELETE'
 
- })
- .then(resp => resp.json())
- .then(data => {console.log(data);
-    Actitvity.delete(data.id)
-AppContainer.renderActitvities();})
- .catch(err => alert(err))
-})
-}
+//  })
+//  .then(resp => resp.json())
+//  .then(data => {console.log(data);
+//     Actitvity.delete(data.id)
+// AppContainer.renderActitvities();})
+//  .catch(err => alert(err))
+// })
+// }
 }

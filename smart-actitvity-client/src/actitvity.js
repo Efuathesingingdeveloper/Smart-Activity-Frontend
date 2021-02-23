@@ -3,9 +3,11 @@ class Actitvity {
         this.name = name;
         this.category = category;
         this.id = id;
+        // AppContainer.actitvities.push(this);
     }
     static delete(actitvityId) {
-     AppContainer.actitvities = AppContainer.actitvities.filter(actitvity => parseInt(actitvityId) !== actitvity.id)
+
+        AppContainer.actitvities = AppContainer.actitvities.filter(actitvity => parseInt(actitvityId) !== actitvity.id)
     }
     static byCategory(categoryName) {
         return AppContainer.actitvities.filter(actitvity => actitvity.category.name === categoryName)
