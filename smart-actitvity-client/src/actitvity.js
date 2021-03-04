@@ -1,10 +1,13 @@
 class Actitvity {
     constructor(id, name, category){
         this.name = name;
+        this.name = name;
         this.category = category;
         this.id = id;
-        // AppContainer.actitvities.push(this);
+
     }
+    
+    
     static delete(actitvityId) {
 
         AppContainer.actitvities = AppContainer.actitvities.filter(actitvity => parseInt(actitvityId) !== actitvity.id)

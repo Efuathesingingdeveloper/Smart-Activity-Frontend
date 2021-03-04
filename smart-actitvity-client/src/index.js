@@ -1,11 +1,16 @@
-
-// document.addEventListener('DomContentLoaded', function(){
-
+const appAdapter = new AppAdapter()
   
     
-    AppAdapter.getActitvities();
-    AppContainer.bindEventListeners();
-    AppContainer.deleteActivity();
-   
-// })
+
+
+function start() {
+        appAdapter.getActitvities();
+        AppContainer.bindEventListeners();
+        AppContainer.deleteActivity();
+        appAdapter.getCategory();
+    
+    }
+
+    start();
+
 
