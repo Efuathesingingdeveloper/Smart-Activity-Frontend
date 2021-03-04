@@ -3,7 +3,7 @@ const seeCategoryActivities = document.querySelector(".buttonsforActivities")
 class AppAdapter {
     url = "http://localhost:3000";
     getActitvities() {
-     
+
         fetch(`${this.url}/actitvities`, {
             method: 'GET',
             headers: {
@@ -17,11 +17,11 @@ class AppAdapter {
             AppContainer.categories = [];
             data.forEach(actitvity =>{
                 AppContainer.actitvities.push(new Actitvity(actitvity.id, actitvity.name, actitvity.category));
+            // Category.actitvities.push(new Actitvity(actitvity.id, actitvity.name, actitvity.category)
                 if (!AppContainer.categories.map(category => category.name).includes(actitvity.category.name)) {
                     AppContainer.categories.push(new Category(actitvity.category.name));
                 }
         });
-       
         })
 
     };
@@ -44,6 +44,7 @@ class AppAdapter {
             .then(data => {   
                 const {id, name, category} = data;
                new Actitvity(id, name, category)
+            //    AppContainer.renderActitvities()
            
             })
             .catch(err => console.log(err));
@@ -62,44 +63,15 @@ class AppAdapter {
     })
     }
         
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-    // updateCategory(event) {
-    //     let idx = event.target.children[2].options.selectedIndex;
-    //     let name = event.target.children[2].options[idx].value.toLowerCase();
+    updateCategory(event) {
+        let idx = event.target.children[2].options.selectedIndex;
+        let name = event.target.children[2].options[idx].value.toLowerCase();
         
-    //     this.getActitvities();
+        this.getActitvities();
        
-    //     let upd = Category.all.find(cat => cat.name === name);
+        let upd = Category.all.find(cat => cat.name === name);
        
-    //     upd.refreshActivities(name);
-    // }
+        upd.refreshActivities(name);
+    }
 
 }
-

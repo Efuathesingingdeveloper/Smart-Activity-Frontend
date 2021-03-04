@@ -13,12 +13,13 @@ class AppContainer {
        
         const newActitvityForm = document.getElementById('newActitvity')
         newActitvityForm.addEventListener('submit', (even) => {
-            AppContainer.appAdapter.createActitvity(even);
+            AppContainer.appAdapter.createActitvity(even);           
+             AppContainer.appAdapter.updateCategory(even);
+
         });
         
         
     };
-    
     
                         
      static generateSmartActitvity(){
