@@ -13,15 +13,15 @@ class Category {
 
     }
 
-    refreshActivityInner(name) {
-        this.byCategory(name);
-        const actNameArray = this.actitvities
-        const names = actNameArray
-            .filter(s => s.length > 0)
-            .map(name => name[0].toUpperCase() + name.substring(1))
-            .join(", ");
-        document.querySelector(".answer").innerHTML = names;
-    }
+    // refreshActivityInner(name) {
+    //     this.byCategory(name);
+    //     const actNameArray = this.actitvities
+    //     const names = actNameArray
+    //         .filter(s => s.length > 0)
+    //         .map(name => name[0].toUpperCase() + name.substring(1))
+    //         .join(", ");
+    //     document.querySelector(".answer").innerHTML = names;
+    // }
 
     displayActitvity = (event) =>{
         this.byCategory(event.target.id);
@@ -31,9 +31,42 @@ class Category {
             .map(name => name[0].toUpperCase() + name.substring(1))
             .join(", ");
         document.querySelector(".answer").innerHTML = names;
+        
     }
 
 
+    renderActitvities = (event) =>{
+        event.preventDefault();
+    const psychologicalButton = document.getElementById('psychological');
+    const physicalButton = document.getElementById('physical');
+    const spiritualButton = document.getElementById('spiritual');
+
+    psychologicalButton.innerHTML = " ";
+    physicalButton.innerHTML = " ";
+    spiritualButton.innerHTML = " ";
+
+    AppContainer.actitvities.forEach(actitvity => {
+        const option = document.createElement('option');
+        option.innerText = actitvity.name;
+        
+        
+        switch(actitvity.category.name) {
+            case 'psychological':
+                psychologicalButton.appendChild(option);
+                break;
+                case 'spiritual':
+                    spiritualButton.appendChild(option);
+                    break;
+                    case 'physical':
+                        physicalButton.appendChild(option);
+                        break;
+                        default:
+                        }
+                        
+                        
+                    })
+                    
+                };
 }
 
 

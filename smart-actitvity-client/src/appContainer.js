@@ -3,7 +3,8 @@ class AppContainer {
     static categories = [];
     url = "http://localhost:3000";
     static appAdapter = new AppAdapter();
-    
+    static categoryc = new Category();
+
     static smartActitvity= new SmartActitvity([]);
     
     static bindEventListeners() {
@@ -13,21 +14,20 @@ class AppContainer {
        
         const newActitvityForm = document.getElementById('newActitvity')
         newActitvityForm.addEventListener('submit', (even) => {
-            AppContainer.appAdapter.createActitvity(even);           
-             AppContainer.appAdapter.updateCategory(even);
-
+            AppContainer.appAdapter.createActitvity(even);
         });
         
         
     };
     
-                        
-     static generateSmartActitvity(){
-            const randomActitvities = this.generateRandomActitvities();
-            AppContainer.smartActitvity = new SmartActitvity(randomActitvities);
-            this.renderSmartActitvity();
-                        
-        }
+    
+    static generateSmartActitvity(){
+        const randomActitvities = this.generateRandomActitvities();
+        AppContainer.smartActitvity = new SmartActitvity(randomActitvities);
+        // this.generateRandomActitvities
+        this.renderSmartActitvity();
+                    
+    }
                             
     static byCategory(categoryName) {
           return AppContainer.actitvities.filter(actitvity => actitvity.category.name === categoryName)
@@ -47,11 +47,12 @@ class AppContainer {
         AppContainer.smartActitvity.actitvities.forEach((actitvity, i) =>{
          let actitvityDiv = document.createElement('div');
             actitvityDiv.innerHTML =`<div id = 'word-${actitvity.id}'> ${actitvity.name}<button id='act-${actitvity.id}'>delete Activity</button></div>`
-                                    
+        //  actitvityDiv.innerText = smartActitvity.name;               
              smartActitvityDiv.appendChild(actitvityDiv);
                                     
                      
           })
+        //   smartActitvityDiv.innerText = AppContainer.smartActitvity;
     }
 
     static deleteActivity(){

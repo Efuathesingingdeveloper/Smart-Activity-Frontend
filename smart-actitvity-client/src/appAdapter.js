@@ -43,8 +43,9 @@ class AppAdapter {
             .then(resp => resp.json())
             .then(data => {   
                 const {id, name, category} = data;
-               new Actitvity(id, name, category)
-            //    AppContainer.renderActitvities()
+           let actitvity1  = new Actitvity(id, name, category)
+           AppContainer.actitvities.push(actitvity1)
+           AppContainer.categoryc.renderActitvities(event);
            
             })
             .catch(err => console.log(err));
@@ -63,15 +64,15 @@ class AppAdapter {
     })
     }
         
-    updateCategory(event) {
-        let idx = event.target.children[2].options.selectedIndex;
-        let name = event.target.children[2].options[idx].value.toLowerCase();
+    // updateCategory(event) {
+    //     let idx = event.target.children[2].options.selectedIndex;
+    //     let name = event.target.children[2].options[idx].value.toLowerCase();
         
-        this.getActitvities();
+    //     this.getActitvities();
        
-        let upd = Category.all.find(cat => cat.name === name);
+    //     let upd = Category.all.find(cat => cat.name === name);
        
-        upd.refreshActivities(name);
-    }
+    //     upd.refreshActivities(name);
+    // }
 
 }

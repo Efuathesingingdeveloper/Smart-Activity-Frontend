@@ -4,7 +4,7 @@ class Actitvity {
         this.name = name;
         this.category = category;
         this.id = id;
-
+// AppContainer.actitvities.push(this);
     }
     
     
